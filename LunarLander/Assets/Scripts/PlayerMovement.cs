@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rb.AddRelativeForce(Vector3.up * jumpSpeed);
+        }
     }
 }

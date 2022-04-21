@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34824bbd23afd5f47917f68f51df8bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 1
+  jumpSpeed: 5
   gravityModifier: 0.1
 --- !u!54 &2079867716
 Rigidbody:
