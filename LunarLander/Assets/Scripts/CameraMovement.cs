@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraMovement : MonoBehaviour
+{
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform camTransform;
+    private Camera cam;
+
+    private float distance = 10f;
+    private float currentX = 0f;
+    private float currentY = 0f;
+
+    private float sensivityX = 4f;
+    private float sensivityY = 1f;
+
+    private void Start()
+    {
+        camTransform = transform;
+        cam = Camera.main;
+    }
+    private void Update()
+    {
+        currentX -= Input.GetAxisRaw("Mouse Y") * sensivityX;
+        currentY += Input.GetAxisRaw("Mouse X") * sensivityY;
+    }
+    private void LateUpdate()
+    {
+        Vector3 dir = new Vector3(0, 0, -distance);
+        Quaternion rot = Quaternion.Euler(currentX, currentY, 0);
+        camTransform.position = player.position + rot * dir;
+        camTransform.LookAt(player.position);
+    }
+}

@@ -26,20 +26,27 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rb.AddRelativeTorque(Vector3.left);
+            rb.AddRelativeTorque(Vector3.left * 0.1f);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            rb.AddRelativeTorque(Vector3.right);
+            rb.AddRelativeTorque(Vector3.right * 0.1f);
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            rb.AddRelativeTorque(Vector3.forward);
+            rb.AddRelativeTorque(Vector3.forward * 0.1f);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            rb.AddRelativeTorque(Vector3.back);
+            rb.AddRelativeTorque(Vector3.back * 0.1f);
         }
-
+        //if (Input.GetKey(KeyCode.Q))
+        //{
+        //    rb.AddRelativeTorque(Vector3.down * 0.1f);
+        //}
+        //if (Input.GetKey(KeyCode.E))
+        //{
+        //    rb.AddRelativeTorque(Vector3.up * 0.1f);
+        //}
     }
 }
