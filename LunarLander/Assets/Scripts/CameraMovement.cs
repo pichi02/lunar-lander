@@ -22,13 +22,15 @@ public class CameraMovement : MonoBehaviour
     }
     private void Update()
     {
-        currentX -= Input.GetAxisRaw("Mouse Y") * sensivityX;
-        currentY += Input.GetAxisRaw("Mouse X") * sensivityY;
+        currentY -= Input.GetAxisRaw("Mouse Y") * sensivityY;
+        currentX += Input.GetAxisRaw("Mouse X") * sensivityX;
+
+        currentY = Mathf.Clamp(currentY, -50f, 50f);
     }
     private void LateUpdate()
     {
         Vector3 dir = new Vector3(0, 0, -distance);
-        Quaternion rot = Quaternion.Euler(currentX, currentY, 0);
+        Quaternion rot = Quaternion.Euler(currentY, currentX, 0);
         camTransform.position = player.position + rot * dir;
         camTransform.LookAt(player.position);
     }
