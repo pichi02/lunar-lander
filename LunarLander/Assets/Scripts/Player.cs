@@ -55,4 +55,5 @@ public class Player : MonoBehaviour
             rb.AddRelativeTorque(Vector3.up);
         }
     }
+
 }
