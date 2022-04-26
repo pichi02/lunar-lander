@@ -46,13 +46,13 @@ public class Player : MonoBehaviour
         {
             rb.AddRelativeTorque(Vector3.back * 0.1f);
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
         {
-            rb.AddRelativeTorque(Vector3.down);
+            rb.AddRelativeTorque(Vector3.down * 0.1f);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
-            rb.AddRelativeTorque(Vector3.up);
+            rb.AddRelativeTorque(Vector3.up * 0.1f);
         }
     }
 
