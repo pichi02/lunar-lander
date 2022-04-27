@@ -13,9 +13,9 @@ public class Player : MonoBehaviour
 
     public int GetScore() => score;
 
-    public void IncreaseScore()
+    public void IncreaseScore(int num)
     {
-        score += 10;
+        score += num;
     }
     void Start()
     {

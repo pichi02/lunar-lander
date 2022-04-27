@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 1416852595}
   m_Layer: 0
   m_Name: Goal
-  m_TagString: Untagged
+  m_TagString: 10pGoal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 1804244686}
   m_Layer: 0
   m_Name: Goal (1)
-  m_TagString: Untagged
+  m_TagString: 20pGoal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

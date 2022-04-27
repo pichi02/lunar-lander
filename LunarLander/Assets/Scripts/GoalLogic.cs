@@ -20,7 +20,15 @@ public class GoalLogic : MonoBehaviour
         {
             if (Vector3.Angle(transform.up, player.gameObject.transform.up)<10)
             {
-                player.IncreaseScore();
+                if (transform.tag=="10pGoal")
+                {
+                    player.IncreaseScore(10);
+                }
+                else if (transform.tag == "20pGoal")
+                {
+                    player.IncreaseScore(20);
+                }
+                
             }
             
         }
