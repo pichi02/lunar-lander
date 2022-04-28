@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
     private Rigidbody rb;
+    private ParticleSystem particleSystem;
     [SerializeField] float jumpSpeed;
     [SerializeField] float gravityModifier;
     [SerializeField] float speed;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        particleSystem = GetComponent<ParticleSystem>();
         Physics.gravity *= gravityModifier;
     }
 
@@ -29,6 +31,17 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             rb.AddRelativeForce(Vector3.up * jumpSpeed);
+            if (!particleSystem.isPlaying)
+            {
+                particleSystem.Play();
+            }
+        }
+        else
+        {
+            if (particleSystem.isPlaying)
+            {
+                particleSystem.Stop();
+            }
         }
         if (Input.GetKey(KeyCode.A))
         {
