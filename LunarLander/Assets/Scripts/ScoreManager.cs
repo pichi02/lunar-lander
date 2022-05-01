@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField] Player player;
     [SerializeField] Text score;
+    [SerializeField] Text fuel;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,8 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = "Score: " + player.GetScore(); 
+        score.text = "Score: " + player.GetScore();
+        fuel.text = "Fuel: " + player.GetFuel();
     }
  
 }

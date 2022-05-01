@@ -9,18 +9,17 @@ public class GoalLogic : MonoBehaviour
 
     private void Update()
     {
-      
-
         
     }
     private void OnCollisionEnter(Collision collision)
     {
-      
+
         if (collision.gameObject == player.gameObject)
         {
-            if (Vector3.Angle(transform.up, player.gameObject.transform.up)<10)
+            if (Vector3.Angle(transform.up, player.gameObject.transform.up) < 10 && player.GetComponent<Rigidbody>().velocity.magnitude < 1)
             {
-                if (transform.tag=="10pGoal")
+                Debug.Log(player.GetComponent<Rigidbody>().velocity.magnitude);
+                if (transform.tag == "10pGoal")
                 {
                     player.IncreaseScore(10);
                 }
@@ -28,9 +27,8 @@ public class GoalLogic : MonoBehaviour
                 {
                     player.IncreaseScore(20);
                 }
-                
+
             }
-            
         }
     }
 }

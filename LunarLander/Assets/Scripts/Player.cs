@@ -28,14 +28,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(fuel);
+       
         Movement();
     }
     public void Movement()
     {
         if (!GameOver())
         {
-
 
             if (Input.GetMouseButton(0))
             {
@@ -90,5 +89,9 @@ public class Player : MonoBehaviour
     public void IncreaseFuel()
     {
         fuel += 0.4f;
+    }
+    public float GetFuel()
+    {
+        return fuel;
     }
 }
