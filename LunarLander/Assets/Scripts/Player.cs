@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float speed;
     private int score = 0;
     private float fuel = 1f;
+    private bool gameOver = false;
 
     public int GetScore() => score;
 
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-       
+
         Movement();
     }
     public void Movement()
@@ -84,7 +85,11 @@ public class Player : MonoBehaviour
     }
     public bool GameOver()
     {
-        return fuel <= 0;
+        if (fuel <= 0)
+        {
+            gameOver = true;
+        }
+        return gameOver;
     }
     public void IncreaseFuel()
     {
@@ -93,5 +98,9 @@ public class Player : MonoBehaviour
     public float GetFuel()
     {
         return fuel;
+    }
+    public void SetGameOver(bool gameOver)
+    {
+        this.gameOver = gameOver;
     }
 }
