@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        Physics.gravity = new Vector3(0f, -9.81f, 0f);
         rb = GetComponent<Rigidbody>();
         particleSystem = GetComponent<ParticleSystem>();
         Physics.gravity *= gravityModifier;
