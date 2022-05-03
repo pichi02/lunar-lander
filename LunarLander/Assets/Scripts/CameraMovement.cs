@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] private Transform player;
+    [SerializeField] private Player player;
     [SerializeField] private Transform camTransform;
     private Camera cam;
 
@@ -22,16 +22,19 @@ public class CameraMovement : MonoBehaviour
     }
     private void Update()
     {
-        currentY -= Input.GetAxisRaw("Mouse Y") * sensivityY;
-        currentX += Input.GetAxisRaw("Mouse X") * sensivityX;
-
-        currentY = Mathf.Clamp(currentY, -50f, 50f);
+        if (!player.GameOver())
+        {
+            currentY -= Input.GetAxisRaw("Mouse Y") * sensivityY;
+            currentX += Input.GetAxisRaw("Mouse X") * sensivityX;
+            currentY = Mathf.Clamp(currentY, -50f, 50f);
+        }
+        
     }
     private void LateUpdate()
     {
         Vector3 dir = new Vector3(0, 0, -distance);
         Quaternion rot = Quaternion.Euler(currentY, currentX, 0);
-        camTransform.position = player.position + rot * dir;
-        camTransform.LookAt(player.position);
+        camTransform.position = player.transform.position + rot * dir;
+        camTransform.LookAt(player.transform.position);
     }
 }

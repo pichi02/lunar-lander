@@ -6,11 +6,6 @@ public class GoalLogic : MonoBehaviour
 {
     [SerializeField] Player player;
     private float angle;
-
-    private void Update()
-    {
-
-    }
     private void OnCollisionEnter(Collision collision)
     {
 
@@ -18,7 +13,6 @@ public class GoalLogic : MonoBehaviour
         {
             if (Vector3.Angle(transform.up, player.gameObject.transform.up) < 45 && collision.relativeVelocity.magnitude < 3)
             {
-                Debug.Log(collision.relativeVelocity.magnitude);
                 if (transform.tag == "10pGoal")
                 {
                     player.IncreaseScore(10);

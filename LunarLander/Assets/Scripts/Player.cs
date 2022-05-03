@@ -14,20 +14,22 @@ public class Player : MonoBehaviour
     private float fuel = 1f;
     private bool gameOver = false;
 
+    private string scorePrefName = "Score";
+
     public int GetScore() => score;
 
     public void IncreaseScore(int num)
     {
         score += num;
     }
-    void Start()
+    private void Awake()
     {
         Physics.gravity = new Vector3(0f, -9.81f, 0f);
         rb = GetComponent<Rigidbody>();
         particleSystem = GetComponent<ParticleSystem>();
         Physics.gravity *= gravityModifier;
     }
-
+  
     void Update()
     {
 
@@ -103,5 +105,13 @@ public class Player : MonoBehaviour
     public void SetGameOver(bool gameOver)
     {
         this.gameOver = gameOver;
+    }
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt(scorePrefName, score);
+    }
+    private void LoadData()
+    {
+        score = PlayerPrefs.GetInt(scorePrefName, 0);
     }
 }
