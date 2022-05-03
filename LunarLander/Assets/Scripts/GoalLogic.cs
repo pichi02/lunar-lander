@@ -16,7 +16,7 @@ public class GoalLogic : MonoBehaviour
 
         if (collision.gameObject == player.gameObject)
         {
-            if (Vector3.Angle(transform.up, player.gameObject.transform.up) < 10 && collision.relativeVelocity.magnitude < 3)
+            if (Vector3.Angle(transform.up, player.gameObject.transform.up) < 45 && collision.relativeVelocity.magnitude < 3)
             {
                 Debug.Log(collision.relativeVelocity.magnitude);
                 if (transform.tag == "10pGoal")
